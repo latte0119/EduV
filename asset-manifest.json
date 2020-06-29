@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.js": "/latte0119/EduV/static/js/main.1fcd8ad4.chunk.js",
-    "main.js.map": "/latte0119/EduV/static/js/main.1fcd8ad4.chunk.js.map",
-    "runtime-main.js": "/latte0119/EduV/static/js/runtime-main.3dfbc3a0.js",
-    "runtime-main.js.map": "/latte0119/EduV/static/js/runtime-main.3dfbc3a0.js.map",
-    "static/js/2.f9b060e4.chunk.js": "/latte0119/EduV/static/js/2.f9b060e4.chunk.js",
-    "static/js/2.f9b060e4.chunk.js.map": "/latte0119/EduV/static/js/2.f9b060e4.chunk.js.map",
-    "index.html": "/latte0119/EduV/index.html",
-    "precache-manifest.658789d2ac83ed76c462089d3f26955d.js": "/latte0119/EduV/precache-manifest.658789d2ac83ed76c462089d3f26955d.js",
-    "service-worker.js": "/latte0119/EduV/service-worker.js",
-    "static/js/2.f9b060e4.chunk.js.LICENSE.txt": "/latte0119/EduV/static/js/2.f9b060e4.chunk.js.LICENSE.txt"
+    "main.js": "./static/js/main.1fcd8ad4.chunk.js",
+    "main.js.map": "./static/js/main.1fcd8ad4.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.efad6830.js",
+    "runtime-main.js.map": "./static/js/runtime-main.efad6830.js.map",
+    "static/js/2.f9b060e4.chunk.js": "./static/js/2.f9b060e4.chunk.js",
+    "static/js/2.f9b060e4.chunk.js.map": "./static/js/2.f9b060e4.chunk.js.map",
+    "index.html": "./index.html",
+    "precache-manifest.ad50aaf24e2a1e3f1d9d260e28dee270.js": "./precache-manifest.ad50aaf24e2a1e3f1d9d260e28dee270.js",
+    "service-worker.js": "./service-worker.js",
+    "static/js/2.f9b060e4.chunk.js.LICENSE.txt": "./static/js/2.f9b060e4.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.3dfbc3a0.js",
+    "static/js/runtime-main.efad6830.js",
     "static/js/2.f9b060e4.chunk.js",
     "static/js/main.1fcd8ad4.chunk.js"
   ]
