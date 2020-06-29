@@ -1,8 +1,14 @@
 body{
-	background-color: #222;
-	color:#fff
+	width:80%;
+	margin:0 auto;
+	background-color: #111;
+	color:#ddd;
 }
 
+header{
+	font-size:20px;
+	border-bottom:solid 5px #6E767D;
+}
 .main{
 	padding-top:30px;
 }
