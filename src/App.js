@@ -27,7 +27,7 @@ class App extends React.Component{
     }
 
     render(){
-      if(this.state.isLoaded===false||true){
+      if(this.state.isLoaded===false){
         const style = { position: "fixed", top: 0, left: 0, width: "100%", height: "100%", display: "flex", justifyContent: "center", alignItems: "center" };
         return (
           <div>
@@ -36,7 +36,7 @@ class App extends React.Component{
         );
       }
       return(
-        <table border="1">
+        <table>
           <thead>
             <tr>
               <th>name</th>
