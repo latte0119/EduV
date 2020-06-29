@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.css"],"names":[],"mappings":"AAAA,KACC,qBAAsB,CACtB,UACD,CAEA,MACC,gBACD","file":"main.986d6fbd.chunk.css","sourcesContent":["body{\r\n\tbackground-color: #222;\r\n\tcolor:#fff\r\n}\r\n\r\n.main{\r\n\tpadding-top:30px;\r\n}\r\n\r\n"]}
