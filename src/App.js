@@ -1,27 +1,49 @@
 import React from 'react';
-import {CommonRainLoading} from 'react-loadingg';
+
+import ContestTable from './contestTable';
 import CommonLoading from 'react-loadingg/lib/CommonLoading';
 
-const getECRList=async()=>{
-  const response=await fetch('https://codeforces.com/api/contest.list');
-  const json=await response.json(); 
-  return json.result
-  .filter(contest=>/Educational\sCodeforces\sRound/.test(contest.name))
-  .sort((a,b)=>a.startTimeSeconds<b.startTimeSeconds?-1:1);
+const fetchContestInfometion=async()=>{
+  const contestList=
+  await fetch('https://codeforces.com/api/contest.list')
+  .then(response=>response.json())
+  .then(json=>{
+    return json.result
+    .filter(contest=>/Educational\sCodeforces\sRound/.test(contest.name))
+    .sort((a,b)=>a.startTimeSeconds<b.startTimeSeconds?-1:1);
+  });
+
+  let s=new Set();
+  for(const  c of contestList)s.add(c.id);
+
+  const problemList=
+  await fetch('https://codeforces.com/api/problemset.problems')
+  .then(response=>response.json())
+  .then(json=>{
+    return json.result.problems
+    .filter(problem=>{
+      if(problem.index.length>=2&&problem.index[1]!='2')return false;
+      return s.has(problem.contestId);
+    });
+  });
+
+  return {contestList:contestList,problemList:problemList};
 };
+
 
 class App extends React.Component{
     constructor(){
       super();
-      this.state={isLoaded:false,contestList:[]};
+      this.state={isLoaded:false,contestList:[],problemList:[],submissionList:[]};
     }
 
     componentDidMount(){
-      getECRList()
-      .then(arr=>{
+      fetchContestInfometion()
+      .then(res=>{
         this.setState({
           isLoaded:true,
-          contestList:arr
+          contestList:res.contestList,
+          problemList:res.problemList
         });
       });
     }
@@ -35,26 +57,8 @@ class App extends React.Component{
          </div>
         );
       }
-      return(
-        <table>
-          <thead>
-            <tr>
-              <th>name</th>
-              <th>id</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.contestList.map(contest=>{
-              return (
-                <tr key={contest.contestId}>
-                  <td>{contest.name}</td>
-                  <td>{contest.id}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      );
+
+       return <ContestTable contestList={this.state.contestList} problemList={this.state.problemList} submissionList={this.state.submissionList}/>;
     }
 }
 export default App;
