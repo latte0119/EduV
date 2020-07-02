@@ -1,7 +1,8 @@
 body{
-	background-color:#222;
+	background-color:#000;
 	color:#fff;
 	font-family: "Montserrat","游ゴシック",YuGothic,"ヒラギノ角ゴ ProN W3","Hiragino Kaku Gothic ProN","メイリオ",Meiryo,sans-serif;
+	margin:0px;
 }
 
 .main{
@@ -10,73 +11,108 @@ body{
 	margin:0 auto;
 }
 
-header{
+.Header{
 	font-size:15px;
 	font-weight:800;
+	background-color:#222;
 	width:100%;
-	padding-top:3px;
+	padding-top:1px;
+	padding-bottom:1px;
 	padding-left:20px;
-	border-bottom:solid 5px #6E767D;
+}
+
+
+.InputForm{
+	background-color:#111;
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-left:20px;
+}
+
+input{
+	margin:3px;
+	padding:8px;
+}
+
+input+input{
+	margin-left:10px;
+}
+
+.inputtext{
+	border:none;
+	font-size:15px;
+	font-weight:500;
+	border:none;
+	background-color: #eee;
+	width:130px;
+	padding-left:10px;
+	padding-right:10px;
+	padding-top:5px;
+	padding-bottom:5px;
+}
+
+.button{
+	border-radius:6%;
+	font-size:15px;
+	font-weight:500;
+	
+	color:#fff;
+	background-color: transparent;
+	border:none;
+	padding-left:10px;
+	padding-right:10px;
+	padding-top:5px;
+	padding-bottom:5px;
 }
 
 a{
 	text-decoration: none;
-	color:#00bfff
+	color:#00bfff;
+	font:30px;
 }
 
-table {
-	/*
-	table-layout:fixed;
-	width:100%;
-	*/
-	border: 1px solid #aaa;
-	border-collapse: separate;
-	border-spacing: 0;
-	border-radius: 6px;
-	overflow: hidden;
-  }
-  table thead th,
-  table tbody th,
-  table tbody td {
-	padding: .6em 3em;
-	border-bottom: 1px solid #aaa;
-  }
-  table thead th {
-	background-color: #333;
-  }
-  table tbody th {
-	background-color: #eee;
-  }
-  table thead th + th,
-  table tbody td {
-	border-left: 1px solid #aaa;
-  }
-  table tbody tr:last-child th,
-  table tbody tr:last-child td {
-	border-bottom: none;
-  }
+p{
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+}
 
-  table th,table td{
-	  font-size:20px;
-	  text-align:center;
-  }
 
-/*
 table{
 	table-layout:fixed;
-	border:solid 1px;
-	border-collapse:collapse;
 	width:100%;
+
+	border: thin solid #aaa;
+	border-collapse: separate;
+	border-spacing: 0;
+
+	border-radius: 6px;
+	overflow:hidden;
+
+	text-align:left;
+	font-size:30x;
+	font-weight:700;	
 }
 
-
-
-table th,table td{
-	border:solid 1px;
-	border-collapse:collapse;
-	font-size:20px;
-	padding:10px;
-	text-align:center;
+th,td{
+	padding-left:7px;
 }
 
-*/
+thead th{
+	background-color: #333;
+	border-bottom:medium solid #aaa;
+}
+
+th + th,td {
+	border-left: thin solid #aaa;
+}
+
+tbody td,tbody th{
+	border-bottom:thin solid #aaa;
+}
+
+tbody tr:last-child th,
+tbody tr:last-child td{
+	border-bottom: none;
+}
+

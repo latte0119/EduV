@@ -1,7 +1,12 @@
 import React from 'react';
 
+const Color={
+	accepted:"#006400",
+	incorrect:"#696969"
+};
+
 export default props=>{
-	const T=new Map();
+	let T=new Map();
 	for(const contest of props.contestList){
 		T[contest.id]=new Array(9);
 		for(let i=0;i<9;i++)T[contest.id][i]={
@@ -12,12 +17,23 @@ export default props=>{
 	}
 
 	for(const problem of props.problemList){
-		console.log(problem.name);
 		T[problem.contestId][problem.index.charCodeAt(0)-65]={
 			href:`https://codeforces.com/contest/${problem.contestId}/problem/${problem.index}`,
-			text:problem.name,
+			text:problem.index+". "+problem.name,
 			bgcolor:""
 		};
+	}
+
+	for(const submission of props.submissionList){
+		if(T[submission.contestId]===undefined)continue;
+		let content=T[submission.contestId][submission.problem.index.charCodeAt(0)-65];
+		
+		if(submission.verdict==="OK"){
+			content.bgcolor=Color.accepted;
+		}
+		else if(content.bgcolor===""){
+			content.bgcolor=Color.incorrect;
+		}
 	}
 
 		
@@ -25,13 +41,13 @@ export default props=>{
 	return (
 		<table>
           <thead>
-            <tr>
-              <th>Contest</th>
+            <tr key="top">
+              <th><p>Contest</p></th>
               {
 				(()=>{
 					let arr=[];
 					for(let i=0;i<9;i++){
-						arr.push(<th>{String.fromCharCode(65+i)}</th>);
+						arr.push(<th><p>{String.fromCharCode(65+i)}</p></th>);
 					}
 					return arr;
 				})()
@@ -42,11 +58,11 @@ export default props=>{
             {
 				props.contestList.map(contest=>{
 					return (
-						<tr>
-							<td><a href={`https://codeforces.com/contest/${contest.id}`}>{contest.name}</a></td>
+						<tr key={contest.id}>
+							<th><a href={`https://codeforces.com/contest/${contest.id}`}><p>{"ERC"+contest.name.split(' ')[3].padStart(3,'0')}</p></a></th>
 							{
 								T[contest.id].map(ht=>{
-									return <td bgcolor={ht.bgcolor}><a href={ht.href}>{ht.text}</a></td>;
+									return <td bgcolor={ht.bgcolor}><a href={ht.href}><p>{ht.text}</p></a></td>;
 								})
 							}
 						</tr>
