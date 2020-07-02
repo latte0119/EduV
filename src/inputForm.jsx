@@ -1,10 +1,17 @@
-import React from 'react';
+import React,{useState} from 'react';
 
 export default props=>{
+	const [inputText,setInputText]=useState("");
+
 	return(
-		<form onSubmit={props.exec}>
-			<input type="text" name="in" onChange={props.update} value={props.in} className="inputtext"/>
-			<input type="submit" value="exec" className="button"/>
-		</form>
+		<div>
+			<input 
+				type="text"
+				onChange={(e)=>{setInputText(e.target.value)}}
+				value={inputText}
+				className="inputtext"
+			/>
+			<button onClick={()=>{props.setUsername(inputText)}}>exec</button>
+		</div>
 	);
 }

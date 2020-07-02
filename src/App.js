@@ -35,29 +35,20 @@ const fetchContestInfometion=async()=>{
 class App extends React.Component{
     constructor(){
       super();
-      this.state={isLoaded:false,contestList:[],problemList:[],submissionList:[],username:"",in:""};
+      this.state={isLoaded:false,contestList:[],problemList:[],submissionList:[],username:""};
 
-      this.update=this.update.bind(this);
-      this.exec=this.exec.bind(this);
+      this.setUsername=this.setUsername.bind(this);
     }
 
-    update(e){
-      this.setState({
-        ...this.state,
-        [e.currentTarget.attributes.name.value]:e.currentTarget.value
-      });
-    }
-
-    exec(e){
-      e.preventDefault();
-      fetch(`https://codeforces.com/api/user.status?handle=${this.state.in}`)
+    setUsername(username){
+      fetch(`https://codeforces.com/api/user.status?handle=${username}`)
       .then(response=>response.json())
       .then(json=>{
         if(json.status==="OK"){
           this.setState(
             {
               ...this.state,
-              username:this.in,
+              username:username,
               submissionList:json.result
             }
           );
@@ -71,19 +62,7 @@ class App extends React.Component{
             }
           );
         }
-        this.render();
       });
-
-        /*
-      if(this.state.in==="")return;
-      this.setState(
-        {
-          ...this.state,
-          username:this.state.in
-        },
-        this.fetchUserStatus
-      );
-      */
     }
 
     componentDidMount(){
@@ -111,7 +90,7 @@ class App extends React.Component{
       return(
         <div>
           <header className="InputForm">
-            <InputForm in={this.state.in} update={this.update} exec={this.exec}/>
+            <InputForm setUsername={this.setUsername}/>
           </header>
           <div className="main">
           <ContestTable key="contestTable" contestList={this.state.contestList} problemList={this.state.problemList} submissionList={this.state.submissionList}/>
