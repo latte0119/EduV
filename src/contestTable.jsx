@@ -59,7 +59,7 @@ export default props=>{
 				props.contestList.map(contest=>{
 					return (
 						<tr key={contest.id}>
-							<th><a href={`https://codeforces.com/contest/${contest.id}`}><p>{"ERC"+contest.name.split(' ')[3].padStart(3,'0')}</p></a></th>
+							<th><a href={`https://codeforces.com/contest/${contest.id}`}><p>{"ECR"+contest.name.split(' ')[3].padStart(3,'0')}</p></a></th>
 							{
 								T[contest.id].map(ht=>{
 									return <td bgcolor={ht.bgcolor}><a href={ht.href}><p>{ht.text}</p></a></td>;
